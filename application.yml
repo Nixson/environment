@@ -1,0 +1,22 @@
+db:
+  name: ${DB_DATABASE}
+  schema: ${DB_SCHEMA}
+  port: ${DB_PORT:5432}
+  host: ${DB_HOST:localhost}
+  login: ${DB_LOGIN}
+  password: ${DB_PASSWORD}
+  driver: ${DB_DRIVER:postgres}
+  showSql: ${DB_SHOW_SQL:false}
+server:
+  port: ${SERVER_PORT:8080}
+  maxSize: ${MAX_REQUEST_BODY_SIZE:104857600}
+  logEnable: ${ENABLE_HTTP_REQUEST_LOG:true}
+service:
+  name: ${SERVICE_NAME}
+log:
+  level: ${LOGGING_ROOT_LEVEL:ERROR}
+qsaver:
+  host: ${QSAVER_HOST:qsaversocket.logging}
+  port: ${QSAVER_PORT:5170}
+  jwt: ${ENABLE_JWT_SECURITY:true}
+  token: ${TOKEN_KEY_URL:http://mdpauth/mdpauth/oauth/token_key}
