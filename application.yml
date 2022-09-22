@@ -8,6 +8,7 @@ db:
   driver: ${DB_DRIVER:postgres}
   showSql: ${DB_SHOW_SQL:false}
 server:
+  host: ${SERVER_HOST:*}
   port: ${SERVER_PORT:8080}
   maxSize: ${MAX_REQUEST_BODY_SIZE:104857600}
   logEnable: ${ENABLE_HTTP_REQUEST_LOG:true}
@@ -18,5 +19,6 @@ log:
 qsaver:
   host: ${QSAVER_HOST:qsaversocket.logging}
   port: ${QSAVER_PORT:5170}
-  jwt: ${ENABLE_JWT_SECURITY:true}
+security:
+  enable: ${ENABLE_JWT_SECURITY:false}
   token: ${TOKEN_KEY_URL:http://mdpauth/mdpauth/oauth/token_key}

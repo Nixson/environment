@@ -21,7 +21,7 @@ type Env struct{}
 var envStruct = Env{}
 var env map[string]string
 
-func getEnv() *Env {
+func GetEnv() *Env {
 	return &envStruct
 }
 
@@ -57,9 +57,10 @@ func (e *Env) GetBool(name string) bool {
 
 var isEnv = regexp.MustCompile(`\$\{(.*?)\}`)
 
-func InitEnv(emb embed.FS) {
+func InitEnv(emb embed.FS) *Env {
 	embedOut = emb
 	initEnv()
+	return GetEnv()
 }
 
 func initEnv() {
