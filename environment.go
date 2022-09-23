@@ -69,7 +69,7 @@ func initEnv() {
 		return
 	}
 	env = convertYamlToProp(file)
-	file, err = embedOut.ReadFile("application.yml")
+	file, err = embedOut.ReadFile("resources/application.yml")
 	if err != nil {
 		return
 	}
