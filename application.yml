@@ -1,6 +1,7 @@
 db:
   name: ${DB_DATABASE}
   schema: ${DB_SCHEMA}
+  ssl: ${DB_SSL:disable}
   port: ${DB_PORT:5432}
   host: ${DB_HOST:localhost}
   login: ${DB_LOGIN}
