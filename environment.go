@@ -27,6 +27,13 @@ func GetEnv() *Env {
 
 var isEnv = regexp.MustCompile(`\$\{(.*?)\}`)
 
+func (e *Env) Get(name string) string {
+	return e.GetString(name)
+}
+func (e *Env) GetEmbed() embed.FS {
+	return embedOut
+}
+
 func (e *Env) GetString(name string) string {
 	strVal, ok := env[name]
 	if !ok {
@@ -57,10 +64,9 @@ func (e *Env) GetBool(name string) bool {
 	return e.GetString(name) == "true"
 }
 
-func InitEnv(emb embed.FS) *Env {
+func InitEnv(emb embed.FS) {
 	embedOut = emb
 	initEnv()
-	return GetEnv()
 }
 
 func initEnv() {
