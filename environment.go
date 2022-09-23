@@ -25,6 +25,8 @@ func GetEnv() *Env {
 	return &envStruct
 }
 
+var isEnv = regexp.MustCompile(`\$\{(.*?)\}`)
+
 func (e *Env) GetString(name string) string {
 	strVal, ok := env[name]
 	if !ok {
@@ -41,7 +43,7 @@ func (e *Env) GetString(name string) string {
 			return sub[1]
 		}
 	}
-	return ""
+	return strings.TrimSpace(strVal)
 }
 func (e *Env) GetInt(name string) int {
 	strVal := e.GetString(name)
@@ -54,8 +56,6 @@ func (e *Env) GetInt(name string) int {
 func (e *Env) GetBool(name string) bool {
 	return e.GetString(name) == "true"
 }
-
-var isEnv = regexp.MustCompile(`\$\{(.*?)\}`)
 
 func InitEnv(emb embed.FS) *Env {
 	embedOut = emb
