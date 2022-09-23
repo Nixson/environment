@@ -31,8 +31,8 @@ func (e *Env) GetString(name string) string {
 		return ""
 	}
 	if isEnv.MatchString(strVal) {
-		find := isEnv.FindAllString(strVal, -1)
-		sub := strings.SplitN(find[0], ":", 1)
+		find := isEnv.FindStringSubmatch(strVal)
+		sub := strings.SplitN(find[1], ":", 1)
 		envOs := os.Getenv(sub[0])
 		if len(envOs) > 0 {
 			return envOs
