@@ -8,6 +8,9 @@ db:
   password: ${DB_PASSWORD}
   driver: ${DB_DRIVER:postgres}
   showSql: ${DB_SHOW_SQL:false}
+  maxIdleConns: ${DB_MAX_IDLE_CONNS:10}
+  maxOpenConns: ${DB_MAX_OPEN_CONNS:100}
+  connMaxLifetime: ${DB_CONN_MAX_LIFETIME:3600}
 server:
   host: ${SERVER_HOST:*}
   port: ${SERVER_PORT:8080}
@@ -23,3 +26,8 @@ qsaver:
 security:
   enable: ${ENABLE_JWT_SECURITY:false}
   token: ${TOKEN_KEY_URL:http://mdpauth/mdpauth/oauth/token_key}
+kafka:
+  url: ${KAFKA_URL:localhost:9092}
+  minBytes: ${KAFKA_MIN_BYTES:100}
+  maxBytes: ${KAFKA_MAX_BYTES:10000}
+  interval: ${KAFKA_COMMIT_INTERVAL:1}
