@@ -19,13 +19,8 @@ service:
   name: ${SERVICE_NAME}
 log:
   level: ${LOGGING_ROOT_LEVEL:ERROR}
-qsaver:
-  host: ${QSAVER_HOST:qsaversocket.logging}
-  port: ${QSAVER_PORT:5170}
-  enable: ${ENABLE_HTTP_REQUEST_LOG:true}
 security:
-  enable: ${ENABLE_JWT_SECURITY:false}
-  token: ${TOKEN_KEY_URL:http://mdpauth/mdpauth/oauth/token_key}
+  enable: ${ENABLE_SECURITY:true}
 kafka:
   url: ${KAFKA_URL:localhost:9092}
   minBytes: ${KAFKA_MIN_BYTES:100}
