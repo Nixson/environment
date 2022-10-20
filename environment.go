@@ -18,14 +18,30 @@ var embedOut embed.FS
 
 type Env struct{}
 
-var envStruct = Env{}
+var envStruct = &Env{}
 var env map[string]string
 
 func GetEnv() *Env {
-	return &envStruct
+	return envStruct
 }
 
 var isEnv = regexp.MustCompile(`\$\{(.*?)\}`)
+
+func Get(name string) string {
+	return envStruct.GetString(name)
+}
+func GetEmbed() embed.FS {
+	return envStruct.GetEmbed()
+}
+func GetString(name string) string {
+	return envStruct.GetString(name)
+}
+func GetInt(name string) int {
+	return envStruct.GetInt(name)
+}
+func GetBool(name string) bool {
+	return envStruct.GetBool(name)
+}
 
 func (e *Env) Get(name string) string {
 	return e.GetString(name)

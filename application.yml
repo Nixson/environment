@@ -17,6 +17,7 @@ server:
   maxSize: ${MAX_REQUEST_BODY_SIZE:104857600}
 service:
   name: ${SERVICE_NAME}
+  prod: ${PROD:false}
 log:
   level: ${LOGGING_ROOT_LEVEL:ERROR}
 security:
